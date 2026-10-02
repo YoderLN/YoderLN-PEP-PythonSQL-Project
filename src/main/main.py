@@ -60,9 +60,9 @@ def load_and_clean_users(file_path):
     for row in loaded:
         counter +=1
         if (len(row) ==2):
-            cursor.execute("INSERT INTO users(PRIMARY KEY, firstName, lastName) VALUES (?, ?, ?);", loaded
+            cursor.execute("INSERT INTO users(userId, firstName, lastName) VALUES (?, ?, ?);", counter, loaded
             )
-    print("TODO: load_users")
+    #print("TODO: load_users")
 
 
 # This function will load the callLogs.csv file into the callLogs table, discarding any records with incomplete data
