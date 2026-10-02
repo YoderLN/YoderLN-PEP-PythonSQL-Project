@@ -56,7 +56,7 @@ def load_and_clean_users(file_path):
 
     with open(file_path) as file:
 
-        loaded = csv.reader(file)
+        loaded = csv.reader(file, delimiter = ',')
         header = next(loaded)
         for row in loaded:
             
