@@ -55,7 +55,7 @@ def main():
 def load_and_clean_users(file_path):
 
     loaded = csv.reader(file_path)
-    header = loaded.next()
+    header = next(loaded)
     counter = 0
     for row in loaded:
         counter +=1
