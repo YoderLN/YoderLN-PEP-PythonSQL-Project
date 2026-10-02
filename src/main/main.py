@@ -36,9 +36,9 @@ def main():
 
     # You will implement these methods below. They just print TO-DO messages for now.
     load_and_clean_users(os.path.join(_RESOURCES_DIR, 'users.csv'))
-    #load_and_clean_call_logs(os.path.join(_RESOURCES_DIR, 'callLogs.csv'))
+    load_and_clean_call_logs(os.path.join(_RESOURCES_DIR, 'callLogs.csv'))
     #write_user_analytics(os.path.join(_RESOURCES_DIR, 'userAnalytics.csv'))
-    #write_ordered_calls(os.path.join(_RESOURCES_DIR, 'orderedCalls.csv'))
+    write_ordered_calls(os.path.join(_RESOURCES_DIR, 'orderedCalls.csv'))
 
     # Helper method that prints the contents of the users and callLogs tables. Uncomment to see data.
     select_from_users_and_call_logs()
@@ -61,8 +61,8 @@ def load_and_clean_users(file_path):
         for row in loaded:
             
             if (len(row) ==2) and all(row):
-                cursor.execute("INSERT INTO users(firstName, lastName) VALUES (?, ?);", row
-            )
+                cursor.execute("INSERT INTO users(firstName, lastName) VALUES (?, ?);", 
+                row)
     #print("TODO: load_users")
     conn.commit()
 
@@ -96,8 +96,13 @@ def write_user_analytics(csv_file_path):
 # This function will write the callLogs ordered by userId, then start time.
 # Then, write the ordered callLogs to orderedCalls.csv
 def write_ordered_calls(csv_file_path):
+    cursor.execute('''SELECT * FROM callLogs
+    orderBy userId, startTime;''')
+    with open(csv_file_path, 'w') as file:
+        for row in cursor:
+            file.append(row)
 
-    print("TODO: write_ordered_calls")
+    #print("TODO: write_ordered_calls")
 
 
 
