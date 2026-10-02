@@ -58,7 +58,6 @@ def load_and_clean_users(file_path):
 
         loaded = csv.reader(file)
         header = next(loaded)
-        counter = 0
         for row in loaded:
             
             if (len(row) ==2) and all(row):
