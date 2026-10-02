@@ -60,7 +60,7 @@ def load_and_clean_users(file_path):
     for row in loaded:
         counter +=1
         if (len(row) ==2):
-            cursor.execute("INSERT INTO users(userId, firstName, lastName) VALUES (?, ?, ?);", counter, loaded
+            cursor.execute("INSERT INTO users(firstName, lastName) VALUES (?, ?);", loaded
             )
     #print("TODO: load_users")
 
