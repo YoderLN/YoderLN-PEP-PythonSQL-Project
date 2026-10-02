@@ -101,7 +101,7 @@ def write_ordered_calls(csv_file_path):
     with open(csv_file_path, 'w') as file:
          writer = csv.writer(file)
 
-         writer.writerow([description[0] for description in cursor.description])
+         #writer.writerow([description[0] for description in cursor.description])
 
          for row in cursor:
             writer.writerow(row)
