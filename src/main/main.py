@@ -77,11 +77,11 @@ def load_and_clean_call_logs(file_path):
         for row in loaded:
 
             if len(row) ==5 and all(row):
-                cursor.execute('''INSERT INTO callLogs(phoneNumber, startTime, endTime, direction, userId) 
-                VALUES (?, ?, ?, ?, ?);
-                ''', row)
+                cursor.execute('''INSERT INTO callLogs(phoneNumber, startTime, endTime, 
+                direction, userId) 
+                VALUES (?, ?, ?, ?, ?); ''', row)
 
-        conn.commit()
+    conn.commit()
     #print("TODO: load_call_logs")
 
 
