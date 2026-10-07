@@ -37,7 +37,7 @@ def main():
     # You will implement these methods below. They just print TO-DO messages for now.
     load_and_clean_users(os.path.join(_RESOURCES_DIR, 'users.csv'))
     load_and_clean_call_logs(os.path.join(_RESOURCES_DIR, 'callLogs.csv'))
-    #write_user_analytics(os.path.join(_RESOURCES_DIR, 'userAnalytics.csv'))
+    write_user_analytics(os.path.join(_RESOURCES_DIR, 'userAnalytics.csv'))
     write_ordered_calls(os.path.join(_RESOURCES_DIR, 'orderedCalls.csv'))
 
     # Helper method that prints the contents of the users and callLogs tables. Uncomment to see data.
@@ -89,7 +89,7 @@ def load_and_clean_call_logs(file_path):
 # You must save records consisting of each userId, avgDuration, and numCalls
 # example: 1,105.0,4 - where 1 is the userId, 105.0 is the avgDuration, and 4 is the numCalls.
 def write_user_analytics(csv_file_path):
-    cursor.execute(''' SELECT userId, AVG(endTime - startTime) AS "avgDuration, COUNT(*) AS numCalls
+    cursor.execute(''' SELECT userId, AVG(endTime - startTime) AS 'avgDuration', COUNT(*) AS 'numCalls'
     FROM callLogs
     GROUP BY userId;
     ''')
