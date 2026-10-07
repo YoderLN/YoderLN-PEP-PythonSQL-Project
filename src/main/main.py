@@ -98,6 +98,8 @@ def write_user_analytics(csv_file_path):
     with open(csv_file_path, 'w') as file:
         writer = csv.writer(file)
 
+        writer.writerow("userId, avgDuration, numCalls")
+
         for row in cursor:
             writer.writerow(row)
 
