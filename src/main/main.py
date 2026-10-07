@@ -60,7 +60,7 @@ def load_and_clean_users(file_path):
         header = next(loaded)
         for row in loaded:
             
-            if (len(row) ==2) and all(row) and !row[0].isspace():
+            if (len(row) ==2) and all(row):
                 cursor.execute("INSERT INTO users(firstName, lastName) VALUES (?, ?);", 
                 row)
     #print("TODO: load_users")
