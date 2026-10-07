@@ -94,7 +94,7 @@ def write_user_analytics(csv_file_path):
     GROUP BY userId;
     ''')
 
-    with open(csv_file_path, w) as file:
+    with open(csv_file_path, 'w') as file:
         writer = csv.writer(file)
 
         for row in cursor:
